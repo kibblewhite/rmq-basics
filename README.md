@@ -5,7 +5,7 @@ git config user.name "kibblewhite"
 git config user.email "kibblewhite@live.com"
 git config --list
 
-https://kibblewhite:6bd4e82458c38971852855f9a622069d4a820aa3@github.com/kibblewhite/<repo-name>.git
+https://kibblewhite:user_token_here@github.com/kibblewhite/<repo-name>.git
 
 https://medium.com/@frcs6b/docker-engine-on-wsl-visual-studio-2019-without-docker-desktop-dfdbef353350?source=rss------docker-5
 
