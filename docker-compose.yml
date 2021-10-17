@@ -1,0 +1,48 @@
+version: '3.7'
+
+# docker-compose -p rmq-basics-stack -f docker-compose.yml up -d
+# docker-compose -p rmq-basics-stack -f docker-compose.yml down --volumes
+
+services:
+
+  rmq-svc:
+    container_name: rmq-svc
+    image: rabbitmq:3.9.7-management-alpine
+    restart: always
+    hostname: "rmq-svc"
+    environment:
+      RABBITMQ_DEFAULT_USER: "rmq"
+      RABBITMQ_DEFAULT_PASS: "rmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    expose:
+      - 5672
+      - 15672
+    ports:
+      - 15672:15672
+    networks:
+      - internal
+    volumes:
+      - rmq-svc-data:/var/lib/rabbitmq
+      - rmq-svc-log:/var/log/rabbitmq
+      - rmq-svc-etc:/etc/rabbitmq
+
+
+volumes:
+
+  rmq-svc-data:
+    name: rmq-svc-data
+    driver: local
+
+  rmq-svc-log:
+    name: rmq-svc-log
+    driver: local
+
+  rmq-svc-etc:
+    name: rmq-svc-etc
+    driver: local
+
+networks:
+
+  internal:
+    name: internal
+    external: true

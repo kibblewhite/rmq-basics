@@ -1,0 +1,12 @@
+version: '3.7'
+
+# docker-compose -f docker-compose.internal.network.yml up
+# docker-compose -f docker-compose.internal.network.yml down
+
+networks:
+
+  internal:
+    name: internal
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: internal
